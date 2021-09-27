@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 465566837}
   - component: {fileID: 465566839}
   - component: {fileID: 465566838}
+  - component: {fileID: 465566840}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -527,6 +528,24 @@ MonoBehaviour:
   moveSpeed: 5
   rotationAnchor: {fileID: 458551475}
   moveDir: {x: 0, y: 0, z: 0}
+  isDashing: 0
+  dashTimer: 0
+--- !u!54 &465566840
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 465566836}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &618918636
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +687,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7783018, y: 1}
+    m_SensorSize: {x: 2.0266836, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -770,6 +789,7 @@ GameObject:
   - component: {fileID: 1375786955}
   - component: {fileID: 1375786954}
   - component: {fileID: 1375786956}
+  - component: {fileID: 1375786957}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -859,6 +879,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!64 &1375786957
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375786952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2959467708922500008, guid: 5c0669bd66f517143b7f3a11cbd9c17e, type: 3}
 --- !u!1 &1935676031
 GameObject:
   m_ObjectHideFlags: 0

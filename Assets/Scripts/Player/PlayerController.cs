@@ -10,8 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3 moveDir;
 
     //Todo: Use state enum instead
-    private bool isDashing;
+    [SerializeField] private bool isDashing;
     private bool isMoving;
+
+    [SerializeField] private float dashTimer;
 
     private Camera cam;
     
@@ -24,7 +26,17 @@ public class PlayerController : MonoBehaviour
     {
         InputUpdate();
         LookAtUpdate();
-        if(isMoving && !isDashing) MoveUpdate();
+        DashUpdate();
+        MoveUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        if (isDashing)
+        {
+            DashMovement();
+        }
+        
     }
 
     private void InputUpdate()
@@ -49,6 +61,26 @@ public class PlayerController : MonoBehaviour
 
     private void DashUpdate()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
+        {
+            isDashing = true;
+            moveSpeed = moveSpeed * 10f;
+            dashTimer = 0.15f;
+        }
+    }
+
+    private void DashMovement()
+    {
+        if(dashTimer > 0)
+        {
+            dashTimer -= Time.fixedDeltaTime;
+        }
+        else
+        {
+            moveSpeed = moveSpeed / 10f;
+            isDashing = false;
+            
+        }
+
     }
 }
