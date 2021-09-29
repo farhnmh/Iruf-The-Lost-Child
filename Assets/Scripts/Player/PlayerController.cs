@@ -2,14 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityTemplateProjects;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float dashSpeed;
     [SerializeField] private Transform rotationAnchor;
     [SerializeField] private Vector3 moveDir;
+    [SerializeField] private ShootScript shootScript;
+    [SerializeField] private ParticleSystem dashParticle;
 
-    //Todo: Use state enum instead
     [SerializeField] private bool isDashing;
     private bool isMoving;
 
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
+        dashParticle.Stop();
     }
 
     private void Update()
@@ -44,11 +48,26 @@ public class PlayerController : MonoBehaviour
         moveDir.x = Input.GetAxis("Horizontal");
         moveDir.z = Input.GetAxis("Vertical");
         isMoving = moveDir.magnitude > 0;
+
+        if (Input.GetButtonDown("Shoot"))
+        {
+            shootScript.Shoot(new BulletData()
+            {
+                direction = rotationAnchor.forward,
+                speed = 30f,
+                lifetime = 3f,
+                grouping = Group,
+                damageData = new IDamageable.DamageData()
+                {
+                    damage = 100f
+                }
+            });
+        }
     }
 
     private void MoveUpdate()
     {
-        transform.position += moveDir.normalized * (moveSpeed * Time.deltaTime);
+        transform.position += moveDir.normalized * ((isDashing ? dashSpeed : moveSpeed) * Time.deltaTime);
     }
 
     private void LookAtUpdate()
@@ -64,8 +83,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
         {
             isDashing = true;
-            moveSpeed = moveSpeed * 10f;
             dashTimer = 0.15f;
+            dashParticle.Play();
         }
     }
 
@@ -77,10 +96,15 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            moveSpeed = moveSpeed / 10f;
             isDashing = false;
-            
+            dashParticle.Stop();
         }
 
+    }
+
+    public IDamageable.Grouping Group => IDamageable.Grouping.Player;
+    public void Damage(IDamageable.DamageData data)
+    {
+        
     }
 }
