@@ -1,3 +1,5 @@
+using System;
+
 namespace UnityTemplateProjects
 {
     public interface IDamageable
@@ -9,6 +11,7 @@ namespace UnityTemplateProjects
             Prop
         }
         
+        [Serializable]
         public struct DamageData
         {
             public float damage;
@@ -16,6 +19,6 @@ namespace UnityTemplateProjects
         
         public Grouping Group { get; }
 
-        public void Damage(DamageData data);
+        public void Damage(DamageData damageData);
     }
 }

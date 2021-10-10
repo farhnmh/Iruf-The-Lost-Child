@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private Vector3 moveDir;
     [SerializeField] private ShootScript shootScript;
     [SerializeField] private ParticleSystem dashParticle;
+    [SerializeField] private IDamageable.DamageData damageData;
 
     [SerializeField] private bool isDashing;
     private bool isMoving;
@@ -103,7 +104,7 @@ public class PlayerController : MonoBehaviour, IDamageable
     }
 
     public IDamageable.Grouping Group => IDamageable.Grouping.Player;
-    public void Damage(IDamageable.DamageData data)
+    public void Damage(IDamageable.DamageData damageData)
     {
         
     }
