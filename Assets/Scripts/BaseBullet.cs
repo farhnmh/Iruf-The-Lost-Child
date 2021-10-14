@@ -14,7 +14,6 @@ public class BaseBullet : MonoBehaviour
 
     private Rigidbody rb;
     private Camera cam;
-    private bool hasInit;
 
     private void Awake()
     {
@@ -29,7 +28,6 @@ public class BaseBullet : MonoBehaviour
         rb.velocity = data.direction.normalized * data.speed;
 
         Invoke(nameof(Despawn), data.lifetime);
-        hasInit = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,6 +41,8 @@ public class BaseBullet : MonoBehaviour
             if (damageable.Group == data.grouping) continue;
             damageable.Damage(data.damageData);
         }
+        
+        Despawn();
     }
 
     private void Despawn()

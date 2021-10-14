@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour, IDamageable
                 grouping = Group,
                 damageData = new IDamageable.DamageData()
                 {
-                    damage = 100f
+                    damage = 5f
                 }
             });
         }
@@ -106,6 +106,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     public IDamageable.Grouping Group => IDamageable.Grouping.Player;
     public void Damage(IDamageable.DamageData damageData)
     {
-        
+        Debug.Log($"Player Damaged by {damageData.damage}");
     }
 }

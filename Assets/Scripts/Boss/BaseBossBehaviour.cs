@@ -20,9 +20,10 @@ namespace Boss
 
         public virtual void OnExecute(){}
 
-        public virtual void ExecuteUpdate(){}
+        public virtual void OnExecuteUpdate(){}
 
         public virtual void OnInterrupt(){}
-
+        
+        public virtual void OnDoneExecuting(){}
     }
 }
