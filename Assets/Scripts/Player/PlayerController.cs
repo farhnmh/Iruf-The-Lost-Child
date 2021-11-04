@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityTemplateProjects;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
+    [SerializeField] private CharacterData characterData;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float dashSpeed;
     [SerializeField] private Transform rotationAnchor;
@@ -18,6 +20,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     private bool isMoving;
 
     [SerializeField] private float dashTimer;
+
+    [Header("Feedbacks")] 
+    [SerializeField] private MMFeedbacks shootFeedback;
 
     private Camera cam;
     
@@ -44,8 +49,29 @@ public class PlayerController : MonoBehaviour, IDamageable
         
     }
 
+    private void OnEnable()
+    {
+        characterData.OnHealthZero += OnPlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        characterData.OnHealthZero -= OnPlayerDeath;
+    }
+    
+    private void OnPlayerDeath()
+    {
+        
+    }
+
     private void InputUpdate()
     {
+        if (GameManager.Instance.IsGameOver)
+        {
+            moveDir = Vector3.zero;
+            return;
+        }
+        
         moveDir.x = Input.GetAxis("Horizontal");
         moveDir.z = Input.GetAxis("Vertical");
         isMoving = moveDir.magnitude > 0;
@@ -60,9 +86,11 @@ public class PlayerController : MonoBehaviour, IDamageable
                 grouping = Group,
                 damageData = new IDamageable.DamageData()
                 {
-                    damage = 5f
+                    damage = 2f
                 }
             });
+            
+            shootFeedback?.PlayFeedbacks();
         }
     }
 
@@ -106,6 +134,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     public IDamageable.Grouping Group => IDamageable.Grouping.Player;
     public void Damage(IDamageable.DamageData damageData)
     {
+        if (GameManager.Instance.IsGameOver) return;
+
         Debug.Log($"Player Damaged by {damageData.damage}");
+        characterData.Health -= damageData.damage;
     }
 }

@@ -6,7 +6,7 @@ namespace Boss.Behaviours
 {
     public class SpinShootBehaviour : BaseBossBehaviour
     {
-        public override bool CanExecute => bossData.Health < 50f;
+        public override bool CanExecute => characterData.Health < 50f;
 
         public override bool DoneExecuting => spinShoot == null;
 

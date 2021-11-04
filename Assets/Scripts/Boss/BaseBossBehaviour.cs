@@ -11,11 +11,11 @@ namespace Boss
 
         public virtual bool DoneExecuting => true;
 
-        protected BossData bossData;
+        protected CharacterData characterData;
 
-        public virtual void OnInit(BossData data)
+        public virtual void OnInit(CharacterData data)
         {
-            this.bossData = data;
+            this.characterData = data;
         }
 
         public virtual void OnExecute(){}

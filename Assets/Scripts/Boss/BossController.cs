@@ -9,7 +9,7 @@ namespace Boss
     public class BossController : MonoBehaviour, IDamageable
     {
         [SerializeField] private List<BaseBossBehaviour> behaviours;
-        [SerializeField] private BossData bossData;
+        [SerializeField] private CharacterData characterData;
 
         private Coroutine behaviourCoroutine;
 
@@ -24,16 +24,16 @@ namespace Boss
             OnAwake();
             
             foreach (var behaviour in behaviours)
-                behaviour.OnInit(bossData);
+                behaviour.OnInit(characterData);
 
-            bossData.OnHealthZero += OnBossDeath;
+            characterData.OnHealthZero += OnBossDeath;
         }
 
         protected virtual void OnAwake(){}
 
         protected virtual IEnumerator StartBehaviour()
         {
-            while (true)
+            while (!GameManager.Instance.IsGameOver)
             {
                 foreach (var behaviour in behaviours)
                 {
@@ -69,8 +69,10 @@ namespace Boss
         public IDamageable.Grouping Group => IDamageable.Grouping.Enemy;
         public void Damage(IDamageable.DamageData damageData)
         {
-            bossData.Health -= damageData.damage;
-            Debug.Log($"<color=red>Boss Damaged for {damageData.damage}. Health is now {bossData.health}</color>");
+            if (GameManager.Instance.IsGameOver) return;
+
+            characterData.Health -= damageData.damage;
+            Debug.Log($"<color=red>Boss Damaged for {damageData.damage}. Health is now {characterData.Health}</color>");
         }
 
         protected virtual void OnBossDeath()
