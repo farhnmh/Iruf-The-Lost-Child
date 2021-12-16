@@ -20,10 +20,17 @@ namespace UnityTemplateProjects
         [SerializeField] private GameObject gameOverLoseCanvas;
         [SerializeField] private GameObject gameOverWinCanvas;
 
+        [SerializeField] private AudioClip bgm;
+
         private void OnEnable()
         {
-            player.OnHealthZero += delegate { OnGameOver(false); };;
-            boss.OnHealthZero += delegate { OnGameOver(true); };;
+            player.OnHealthZero += delegate { OnGameOver(false); };
+            boss.OnHealthZero += delegate { OnGameOver(true); };
+        }
+
+        private void Start()
+        {
+            SoundManager.Instance.PlayBGM(bgm);
         }
 
         private void OnGameOver(bool isWin)
@@ -34,6 +41,7 @@ namespace UnityTemplateProjects
             gameOverLoseCanvas.SetActive(!isWin);
             gameOverWinCanvas.SetActive(isWin);
             Invoke(nameof(GoToMenu), 3f);
+            SoundManager.Instance.StopBGM();
             IsGameOver = true;
         }
 

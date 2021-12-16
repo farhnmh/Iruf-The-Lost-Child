@@ -11,6 +11,7 @@ namespace Boss.Behaviours
         [SerializeField] private float moveTime = 2f;
         [SerializeField] private int chaseAmount = 3;
         [SerializeField] private Animator animator;
+        [SerializeField] private AudioClip chaseAudio;
 
         public override bool DoneExecuting => doneChasing;
 
@@ -22,18 +23,14 @@ namespace Boss.Behaviours
             doneChasing = false;
             currentChaseAmount = 0;
 
-            animator.SetBool("isWalking", true);
-
             Chase();
         }
 
-        public override void OnDoneExecuting()
-        {
-            animator.SetBool("isWalking", false);
-        }
 
         private void Chase()
         {
+            animator.SetBool("isWalking", false);
+
             if (currentChaseAmount >= chaseAmount)
             {
                 doneChasing = true;
@@ -45,6 +42,8 @@ namespace Boss.Behaviours
 
             transform.DOLookAt(destination, 0.1f).SetEase(Ease.OutQuart).OnComplete(delegate
             {
+                animator.SetBool("isWalking", true);
+                SoundManager.Instance.PlaySFX(chaseAudio);
                 transform.DOMove(destination, moveTime).SetEase(Ease.OutQuint).OnComplete(Chase);
             });
             currentChaseAmount++;

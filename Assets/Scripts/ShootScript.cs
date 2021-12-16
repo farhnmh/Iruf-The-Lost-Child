@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 
 public class ShootScript : MonoBehaviour
@@ -9,6 +10,7 @@ public class ShootScript : MonoBehaviour
     [SerializeField] private BaseBullet bulletPrefab;
     [SerializeField] private int prePoolAmount = 10;
     [SerializeField] private Transform shootAnchor;
+    [SerializeField] private AudioClip shootSfx;
 
     private void Awake()
     {
@@ -21,5 +23,6 @@ public class ShootScript : MonoBehaviour
             .GetComponent<BaseBullet>();
         
         bullet.Initialize(data);
+        SoundManager.Instance.PlaySFX(shootSfx, Random.Range(0.8f, 1.2f), Random.Range(0.7f, 1.3f));
     }
 }

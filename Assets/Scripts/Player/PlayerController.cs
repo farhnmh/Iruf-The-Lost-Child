@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityTemplateProjects;
+using Random = UnityEngine.Random;
 
 public class PlayerController : MonoBehaviour, IDamageable
 {
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private ParticleSystem dashParticle;
     [SerializeField] private IDamageable.DamageData damageData;
     [SerializeField] private Animator animator;
+    [SerializeField] private HurtEffect hurtEffect;
+    [SerializeField] private AudioClip hurtAudio;
 
     [SerializeField] private GameObject playerMesh;
     [SerializeField] private bool isDashing;
@@ -145,5 +148,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
         Debug.Log($"Player Damaged by {damageData.damage}");
         characterData.Health -= damageData.damage;
+        hurtEffect.StartEffect();
+        SoundManager.Instance.PlaySFX(hurtAudio, Random.Range(0.8f, 1.2f), Random.Range(0.7f, 1.3f));
     }
 }

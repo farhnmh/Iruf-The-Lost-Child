@@ -9,16 +9,24 @@ namespace UnityTemplateProjects
         [SerializeField] private IDamageable.Grouping targetGroup;
         private void OnCollisionEnter(Collision other)
         {
-            Debug.Log("Collission Enter");
-            
-            IDamageable[] damageables = other.gameObject.GetComponents<IDamageable>();
+            Damage(other.gameObject);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            Damage(other.gameObject);
+        }
+
+        private void Damage(GameObject obj)
+        {
+            IDamageable[] damageables = obj.GetComponents<IDamageable>();
 
             if (damageables.Length <= 0) return;
 
             foreach (var damageable in damageables)
             {
                 if (damageable.Group == targetGroup) damageable.Damage(damageData);
-            }
+            } 
         }
     }
 }
