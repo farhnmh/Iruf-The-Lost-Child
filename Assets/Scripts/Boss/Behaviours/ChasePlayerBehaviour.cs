@@ -10,6 +10,7 @@ namespace Boss.Behaviours
     {
         [SerializeField] private float moveTime = 2f;
         [SerializeField] private int chaseAmount = 3;
+        [SerializeField] private Animator animator;
 
         public override bool DoneExecuting => doneChasing;
 
@@ -20,8 +21,15 @@ namespace Boss.Behaviours
         {
             doneChasing = false;
             currentChaseAmount = 0;
-            
+
+            animator.SetBool("isWalking", true);
+
             Chase();
+        }
+
+        public override void OnDoneExecuting()
+        {
+            animator.SetBool("isWalking", false);
         }
 
         private void Chase()

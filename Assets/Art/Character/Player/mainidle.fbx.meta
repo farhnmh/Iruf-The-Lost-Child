@@ -8,25 +8,25 @@ ModelImporter:
     second: mixamo.com
   externalObjects:
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: kachujin_MAT
-    second: {fileID: 2100000, guid: 2dfedaf5a9aadfb4d96b09f5eb3ae67f, type: 2}
+      name: Erika_Archer_Clothes_diffuse
+    second: {fileID: 2800000, guid: 067c6daa98e111042bbb3df662f15cff, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Kachujin_diffuse
-    second: {fileID: 2800000, guid: 05337007079abca4fbe3340fc6477773, type: 3}
+      name: Erika_Archer_Clothes_normal
+    second: {fileID: 2800000, guid: 0fec3bba175628d4eb90964e94ff7879, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Kachujin_normal
-    second: {fileID: 2800000, guid: fd677c389d7f12047af8ed045d10f16a, type: 3}
+      name: FemaleFitA_Body_diffuse
+    second: {fileID: 2800000, guid: d7d208884bad3d04684d9dffc7c34d8b, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Kachujin_specular
-    second: {fileID: 2800000, guid: 130a55d8d07beb74eb026ccdfca79eba, type: 3}
+      name: FemaleFitA_StdNM
+    second: {fileID: 2800000, guid: bd170c8d3ee662244b94c85f6907b5cb, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -53,7 +53,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: mixamo.com
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -117,7 +146,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 

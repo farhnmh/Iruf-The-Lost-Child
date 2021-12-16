@@ -15,7 +15,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] private ShootScript shootScript;
     [SerializeField] private ParticleSystem dashParticle;
     [SerializeField] private IDamageable.DamageData damageData;
+    [SerializeField] private Animator animator;
 
+    [SerializeField] private GameObject playerMesh;
     [SerializeField] private bool isDashing;
     private bool isMoving;
 
@@ -76,6 +78,8 @@ public class PlayerController : MonoBehaviour, IDamageable
         moveDir.z = Input.GetAxis("Vertical");
         isMoving = moveDir.magnitude > 0;
 
+        animator.SetBool("isWalking", isMoving);
+
         if (Input.GetButtonDown("Shoot"))
         {
             shootScript.Shoot(new BulletData()
@@ -97,6 +101,9 @@ public class PlayerController : MonoBehaviour, IDamageable
     private void MoveUpdate()
     {
         transform.position += moveDir.normalized * ((isDashing ? dashSpeed : moveSpeed) * Time.deltaTime);
+
+        if (moveDir.magnitude > 0)
+            playerMesh.transform.forward = moveDir;
     }
 
     private void LookAtUpdate()
