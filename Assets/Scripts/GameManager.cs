@@ -30,7 +30,7 @@ namespace UnityTemplateProjects
 
         private void Start()
         {
-            SoundManager.Instance.PlayBGM(bgm);
+            //SoundManager.Instance.PlayBGM(bgm);
         }
 
         private void OnGameOver(bool isWin)

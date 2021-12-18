@@ -13,7 +13,17 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
+            return;
+        }
+
+        if (Instance == this)
+        {
+            return;
+        }
 
         if(PlayerPrefs.HasKey("setting-volume-bgm")) bgmVolume = PlayerPrefs.GetFloat("setting-volume-bgm");
         if(PlayerPrefs.HasKey("setting-volume-sfx")) sfxVolume = PlayerPrefs.GetFloat("setting-volume-sfx");

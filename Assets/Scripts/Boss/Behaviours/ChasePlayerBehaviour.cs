@@ -29,10 +29,9 @@ namespace Boss.Behaviours
 
         private void Chase()
         {
-            animator.SetBool("isWalking", false);
-
             if (currentChaseAmount >= chaseAmount)
             {
+                animator.SetBool("isWalking", false);
                 doneChasing = true;
                 return;
             }
