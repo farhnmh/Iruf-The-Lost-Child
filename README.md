@@ -17,7 +17,7 @@ Iruf is a hero from his village. He had gone through many phases of training wit
 - Based on the Background Story: Because Iruf is a student of a white magic master, therefore, his aura, strength and abilities are dominated by the nuances of kindness.
 
 #### 2. Urip
-![Screenshot 2022-04-26 162555](https://user-images.githubusercontent.com/57122816/165268701-86ea5aba-4530-4041-b4ee-26f23fa02370.png)
+![Screenshot 2022-04-26 162626](https://user-images.githubusercontent.com/57122816/165271489-c306f239-3b4e-4938-b59a-ff00aace4931.png)
 - Based on Location: The clothing of this character, depicts the lives of hard-educated people.
 - Based on Details: For the physical depiction of this character according to the demographics of Darkness.
 - Based on Traits: The trait of this character is evil spreading a negative and destructive aura.
