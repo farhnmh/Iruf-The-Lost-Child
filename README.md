@@ -7,7 +7,7 @@ Iruf is a hero from his village. He had gone through many phases of training wit
 3. Target Audience: 10+
 
 ## Character Detail
-1. Iruf
+#### 1. Iruf
 ![Screenshot 2022-04-26 162555](https://user-images.githubusercontent.com/57122816/165268611-4804ecbd-2ff2-480f-93f2-faa994607f61.png)
 - Based on Location: The clothing of this character, depicts the life of the people in the temple.
 - Based on Details: For the physical depiction of this character according to the demographics of the Asian continent.
@@ -16,7 +16,7 @@ Iruf is a hero from his village. He had gone through many phases of training wit
 - Based on Motivation: This character was created with the aim of defeating Urip, a character who has mastered black magic.
 - Based on the Background Story: Because Iruf is a student of a white magic master, therefore, his aura, strength and abilities are dominated by the nuances of kindness.
 
-2. Urip
+#### 2. Urip
 ![Screenshot 2022-04-26 162555](https://user-images.githubusercontent.com/57122816/165268701-86ea5aba-4530-4041-b4ee-26f23fa02370.png)
 - Based on Location: The clothing of this character, depicts the lives of hard-educated people.
 - Based on Details: For the physical depiction of this character according to the demographics of Darkness.
@@ -27,10 +27,10 @@ Iruf is a hero from his village. He had gone through many phases of training wit
 and scary
 
 ## Gameplay
-1. Core Mechanic
+#### 1. Core Mechanic
 Both characters in this game have the same skill, where they can fire projectiles at each character. Projectiles in this game are not only projectiles from handguns, they can also be from energy balls and so on. There is one advantage that the boss has as an enemy, namely the bullet-hell skill, where the boss can fire a lot of projectiles in one shot. However, players will still be able to beat him if they can read the pattern of resistance given by the boss. In addition, players will also be given additional skills in the form of dashes, to speed up the movement of players.
 
-2. Game Rules
+#### 2. Game Rules
 - If the player dies, then the condition of the player loses
 - If the boss dies, then the player's condition wins
 - If the player/boss is hit by a projectile from each enemy. So their blood is reduced
