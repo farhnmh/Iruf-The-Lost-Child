@@ -8,7 +8,7 @@ Iruf is a hero from his village. He had gone through many phases of training wit
 
 ## Character Detail
 #### 1. Iruf
-<img src="https://user-images.githubusercontent.com/57122816/165268611-4804ecbd-2ff2-480f-93f2-faa994607f61.png" width="450" height="450"><br>
+<img src="https://user-images.githubusercontent.com/57122816/165268611-4804ecbd-2ff2-480f-93f2-faa994607f61.png" width="250" height="250"><br>
 - Based on Location: The clothing of this character, depicts the life of the people in the temple.
 - Based on Details: For the physical depiction of this character according to the demographics of the Asian continent.
 - Based on Traits: The nature of this character is good, fighting for good and throwing out all forms of evil.
@@ -17,7 +17,7 @@ Iruf is a hero from his village. He had gone through many phases of training wit
 - Based on the Background Story: Because Iruf is a student of a white magic master, therefore, his aura, strength and abilities are dominated by the nuances of kindness.
 
 #### 2. Urip
-<img src="https://user-images.githubusercontent.com/57122816/165271489-c306f239-3b4e-4938-b59a-ff00aace4931.png" width="450" height="450"><br>
+<img src="https://user-images.githubusercontent.com/57122816/165271489-c306f239-3b4e-4938-b59a-ff00aace4931.png" width="250" height="250"><br>
 - Based on Location: The clothing of this character, depicts the lives of hard-educated people.
 - Based on Details: For the physical depiction of this character according to the demographics of Darkness.
 - Based on Traits: The trait of this character is evil spreading a negative and destructive aura.
